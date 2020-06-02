@@ -431,7 +431,7 @@ void handler_NEWLINE () {
 		strcat((list.current).text, " ");
 		set_line_to_list(list.first_line, list.current);
 		
-		strncat(second_part_of_text, " ", 1);
+		strcat(second_part_of_text, " ");
 		add_line_to_list(&(list.first_line), &(list.last_line), list.list_index, list.list_size, second_part_of_text);
 	}
 	list.list_size = list.list_size + 1;

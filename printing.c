@@ -86,17 +86,17 @@ void print_line_in_color (char *text, size_t lenght, int oflag, char *style_colo
 	for (index = 0; index < 4; index = index + 1) {
 		if (((1 << index) & oflag) != 0) {
 			switch (index) {
-				case 1:  strncat(format_line, STYLE_SYMBOL_BOLD, STYLE_SYMBOL_SIZE); break;
-				case 2:  strncat(format_line, STYLE_SYMBOL_ITALICS, STYLE_SYMBOL_SIZE); break;
-				case 3:  strncat(format_line, STYLE_SYMBOL_UNDERLINE, STYLE_SYMBOL_SIZE); break;
-				default: strncat(format_line, STYLE_SYMBOL_NORMAL, STYLE_SYMBOL_SIZE); break;
+				case 1:  strcat(format_line, STYLE_SYMBOL_BOLD); break;
+				case 2:  strcat(format_line, STYLE_SYMBOL_ITALICS); break;
+				case 3:  strcat(format_line, STYLE_SYMBOL_UNDERLINE); break;
+				default: strcat(format_line, STYLE_SYMBOL_NORMAL); break;
 			}
 		}
 	}
 	strncat(format_line, style_color_text, size_of_color_style);
 	strncat(format_line, style_background, size_of_background_style);
 	strncat(format_line, text, lenght);
-	strncat(format_line, STYLE_SYMBOL_NORMAL, STYLE_SYMBOL_SIZE);
+	strcat(format_line, STYLE_SYMBOL_NORMAL);
 	safe_write(STDOUT_FILENO, format_line, lenght_format_line);
 }
 
